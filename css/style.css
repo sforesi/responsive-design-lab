@@ -44,7 +44,6 @@ main{
 #status{
   color: grey;
   text-align: right;
-  padding: 10px 0 0 10px;
 }
 
 img{
@@ -65,39 +64,34 @@ img{
 }
 
 #brand{
-  background-color: grey;
-  display: inline
+  display: none;
 }
 
 #offer{
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  grid-area: offer;
+  flex-wrap: nowrap;
 }
 
 
-
 #contact{
-  background-color: whit;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
+  grid-area: contact;
 }
 
 #contact > p:first-child{
   background-color: lime;
-  width: 50%;
+  width: auto;
 }
 
 #contact > p:last-child{
   background-color: green;
-  width: 50%;
+  width: auto;
 }
 
-h1{
-  font-size: 3.2rem;
+#contact > p{
+  display: flex;
+  width: 50%; 
 }
+
 
 #contact > p {
   height: 60px;
@@ -105,4 +99,40 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+p{
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    display: grid;
+    text-align: left;
+    width: 550px;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+      "status name"
+      "img occupation"
+      "img brand" 
+      "contact offer";
+  }
+  #status {
+    text-align: left;
+    padding: 10px 0 0 20px;
+  }
+
+  img {
+    grid-area: img;
+    margin: 0 auto;
+  }
+
+  #brand {
+    display: inline;
+  }
+
+  #contact {
+    grid-area: contact;
+  }
 }
